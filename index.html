@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8">
+  <title>Monribox</title>
+  <style>
+    html {
+  scroll-behavior: smooth;
+  /*buat ngescroll*/
+}
+
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background:#e8d8c4;
+    }
+    
+    /*navbar*/
+    .navbar{
+        display:flex;
+        position:fixed ;
+        z-index:999;
+        background-color:#6d2932;
+        width:100%;
+        /*zindex:nentuin urutan semakin tinggi semakin atas*/
+    }
+    
+    .navbar h1{
+        font-size:25px;
+        color:#e8d8c4;
+        margin: auto ;
+        border-bottom:1px solid #e8d8c4;
+        /*garis bawah*/
+        
+    }
+
+    
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      /*ngilangin garis bawah di url*/
+      color: #e8d8c4;
+      font-weight: bold;
+      font-size:20px;
+    }
+    
+    
+    nav a:hover{
+        color:#561c24;
+        background-color:#e8d8c4;
+        border-radius:15%;
+        
+    }
+
+    
+    h1 {
+      margin: 0;
+    }
+
+    /* Tombol menu */
+    #menu-btn {
+      font-size: 28px;
+      cursor: pointer;
+      background: #6d2932;
+      color: #e8d8c4;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      position: fixed;
+      /*ngebuat ttp dilayar*/
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #3e0d0d;
+      color: white;
+      transition: left 0.3s ease;
+      padding: 50px;
+      box-sizing: border-box;
+      /*width termasuk border*/
+    }
+    
+    #sidebar li a {
+        transition:top 0.3 ease;
+        
+    }
+
+    #sidebar.active {
+      left: 0;
+    }
+
+    #close-btn {
+      font-size: 35px;
+      cursor: pointer;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar ul li {
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    #sidebar ul li:hover {
+      text-decoration: none;
+    }
+
+    /*header*/
+    header {
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      background-color: #561c24; 
+      padding:1rem 2rem;
+      text-align: center;
+    }
+
+    header h4{
+        color:#e8d8c4;
+        font-size: 30px;
+        padding-top: 20px;
+        
+    
+    }
+
+    header button{
+        margin-top: -56px; 
+        background-color:#e8d8c4; 
+        color: #561c24; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 6px; 
+        font-size: 16px; 
+
+    }
+    
+    
+    header button a {
+        text-decoration:none;
+        color: #561c24;
+    }
+    
+    
+    /*about us*/
+    #about{
+        
+        text-align:center;
+        padding:2px;
+        color:#6d2932;
+        margin-top:10px;
+    }
+
+    .us{
+        display:flex;
+    }
+    
+    .us img{
+        height:40px;
+        width:20px;
+        margin-left:30px;
+    }
+    
+    
+    
+    /*Menu*/
+    .produk h3{
+        font-size:27px;
+    }
+    
+    .container button{
+        background-color:#c7b7a3;
+        color:#e8d8c4;
+    }
+    
+    .produk p {
+        margin-top:-23px;
+    }
+    
+
+    .produk button {
+        background-color: #561c24; 
+        color: #e8d8c4; 
+        padding: 10px 20px; 
+        border-color: #561c24; 
+        border-radius: 6px; 
+        font-size: 16px; 
+        cursor: pointer;
+        /*untuk nunjuk*/
+        width:250px;
+    }
+
+    .produk button a{
+      background-color: #561c24;
+      text-decoration: none;
+      color: #e8d8c4;
+    }
+    
+    
+    .produk button:hover a{
+        text-decoration:none;
+        color: #e8d8c4;
+        background-color: #561c24;
+    }
+    
+    .container {
+      color:#6d2932;    
+    }
+    
+
+    .container h2{
+        text-align:center;
+    }
+    
+    #menu{
+        padding:60px;
+    }
+    
+    
+
+    .produk-list {
+      display: flex;
+      flex-wrap: wrap;
+      /*biar list nya kebwh klo g muat*/
+      justify-content: center;
+      gap: 20px;
+      /*jarak*/
+      padding:89px;
+    }
+
+    .produk {
+      background: #6d2932;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 389px;
+      height: 300px;
+      text-align: center;
+    }
+
+    .produk img {
+      width: 250px;
+      height: 300px;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #561c24;
+      color: #e8d8c4;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /*panduan*/
+    .panduan{
+        padding-bottom:50px;
+    }
+    
+    .panduan h2 {
+        text-align:center ;
+        color:#6d2932;
+    }
+    
+    .panduan details {
+      background-color: #c7b7a3;
+      color:#561c27;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 600px;
+      transition: 0.3s;
+    }
+
+    .panduan summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .panduan details[open] {
+      background-color: #6d2932;
+      color:#e8d8c4;
+    }
+
+    .panduan p {
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    .panduan h2{
+      border-bottom: 2px solid #6d2932;
+      padding-bottom: 5px;
+    }
+    
+    
+    
+    
+  /*kontak*/
+    #kontak{
+        text-align:center;
+        color:#6d2932;
+    }
+    
+    #kontak button{
+        background-color:#6d2932; 
+        color:#e8d8c4; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 6px; 
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    section {
+      margin-top: 40px;
+      max-width: 800px;
+      /*ukuran maksimal*/
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #6d2932;
+      padding-bottom: 5px;
+    }
+    
+    /*footer*/
+    footer {
+      background: #6d2932;
+      color: #e8d8c4;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer .label{
+      display: flex;
+      justify-content: center;
+      align-item:center;
+    }
+    
+    h6{
+      margin-right:30px;
+      font-size:15px;
+    }
+    
+    h5{
+        margin-left:30px;
+        font-size:15px;
+        margin-top:35px;
+    }
+
+    footer img{
+      width:85px;
+      border-radius:500%;
+    }
+      
+    .sosmed a {
+      color: #e8d4c4;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="navbar">
+    <h1 style="margin-left:50px;">MonriboX</h1>
+    <div id="menu-btn" style="margin-right:50px;">&#9776; 
+    <!-- &#9776= simbol garis 3, &times= tanda x -->
+    </div>
+    </div>
+    
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div id="close-btn">&times;</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#kontak">Contact Us</a></li>
+      <li><a href="#tutor">Panduan</a></li>
+    </ul>
+  </nav>
+
+ 
+<header id=home >
+    
+    <img   src="https://i.pinimg.com/736x/00/53/ca/0053ca5c4971b5eaabc5caa156fbb542.jpg"
+    style="width: 45%; margin-bottom: 20px;" />
+  
+  <div>
+    <h4 style="font-size: 45px;">
+      Setiap Renyahan Pastinya Memiliki Banyak Cerita
+    </h4>
+    <button><a href="#menu">Shop Now</a></button>
+  </div>
+</header>
+
+
+
+
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <div class="us">
+      <p style="margin: auto; font-size: 19px;">Kami yang akan menyediakan kuliner simple yang mengenyangkan perut dengan tujuan mengisi perut yang lapar , berbahan dasar ayam fillet yang digoreng dengan tepung panir yang menciptakan rasa yang autentik. Usaha kami MonriboX sendiri kami ambil dari nama kelompok kami yaitu hari senin (MONday) RIce  BOX
+  </p>
+  <img src="https://i.pinimg.com/736x/20/a8/2c/20a82c0645c02ae06d197a8e41253e2e.jpg" style="width:230px; height:230px; border-radius:100%;">
+  </div>
+
+</section>
+
+
+
+
+
+<div class="container" id="menu">
+  <h2>Our Menu</h2>
+  <div class="produk-list">
+    <div class="produk">
+      <img src="https://i.pinimg.com/736x/6e/5f/0a/6e5f0a5ce2d37688869d538458154e31.jpg" style="margin-top:-80px;">
+      <h3 style="color:#e8d8c4">Chicken Katsu</h3>
+      <p style="color:#e8d8c4">Rp14.000</p>
+      <button onclick><a href="https://wa.me/6287836530514?text=Halo%20saya%20ingin%20membeli%20Satu%20Chicken%20katsu">Order Now</a></button>
+    </div>
+  </div>
+</div>
+
+
+<div class="panduan" id="tutor">
+<!-- Summary : judul yang dimunculkan, detail : isi -->
+    <h2>Panduan</h2>
+    <details>
+    <summary>Pembelian 1 pcs</summary>
+    <p>Jika pembelian Barang hanya satu bisa langsung klik tombol "Order Now"</p>
+  </details>
+
+  <details>
+    <summary>Pembelian lebih dari 1 pcs</summary>
+    <p>Jika pembelian lebih dari 1 pcs, Bisa Pesan via wa dengan mencantumkan berapa pcs yang ingin dipesan melalui Whatsapp kami di form " Contact Us"</p>
+  </details>
+</div>
+
+
+
+
+
+<section id="kontak">
+  <h2>Contact Us</h2>
+  <input type="text" id="pesan" placeholder="Tulis pesananmu di sini jika pesanan lebih dari satu"
+    style="padding: 10px; width:320px;">
+  <button onclick="kirimWhatsapp()">Submit</button>
+</section>
+
+
+<footer>
+  <div class="label">
+    <h6><u>Monday</u></h6>
+    <img src="https://i.pinimg.com/736x/20/a8/2c/20a82c0645c02ae06d197a8e41253e2e.jpg"></img>
+    <h5><u>RiceBoX</u></h5>
+  </div>
+
+
+  <p>Ikuti kami di sosial media:</p>
+  <div class="sosmed">
+    <a href="https://www.instagram.com/monribox?igsh=YWU5a3NpbGdpamh5">Instagram</a> |
+    <a href="https://www.facebook.com/share/1KYXT7C9vr/">Facebook</a> |
+    <a href="https://www.tiktok.com/@_monribox_uwu?_t=ZS-8wCQOxzP1M8&_r=1">TikTok</a> |
+    <a href="https://id.shp.ee/cr5ZJ5s">Shopee</a> |
+    <a href="https://www.youtube.com/@mondribbox">Youtube</a> |
+    <a href="https://x.com/monribox?t=XCHAQUFeTIkvtxTXUF1nDA&s=09">X</a> 
+  </div>
+  <p>&copy; 2025 Monday Rice Box</p>
+</footer>
+
+<script>
+/*Pesanan ke wa lebih dari satu*/
+function kirimWhatsapp() {
+    const nomor = "6287836530514";
+    const pesan = document.getElementById("pesan").value;
+    const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+    /*ngubah teks jadi url dgn aman*/
+    window.open(url, "_blank");
+  }
+  
+  
+/*sidebar*/
+/*bisa make karna ada penggunaan simbol yg sdh ada*/
+document.addEventListener("DOMContentLoaded", function() {
+      const menuBtn = document.getElementById("menu-btn");
+      const sidebar = document.getElementById("sidebar");
+      const closeBtn = document.getElementById("close-btn");
+/*jika menu diklik maka tampilin yg lain*/
+      menuBtn.addEventListener("click", function() {
+        sidebar.classList.add("active");
+        /*nambah css atau ngeaktifin css*/
+      });
+
+      closeBtn.addEventListener("click", function() {
+        sidebar.classList.remove("active");
+        /*matiin cssnya*/
+      });
+    });
+</script>
+
+</body>
+</html>

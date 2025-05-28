@@ -496,10 +496,19 @@ body {
 function kirimWhatsapp() {
     const nomor = "6287836530514";
     const pesan = document.getElementById("pesan").value;
+    if (pesan === "") {
+      alert("Pesanan harus diisi!");
+      return;
+    }
     const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
     /*ngubah teks jadi url dgn aman*/
     window.open(url, "_blank");
   }
+
+  if (pesan === "") {
+    alert("pesan tidak boleh kosng");
+  }
+  
   
   
 /*sidebar*/

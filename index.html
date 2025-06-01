@@ -58,7 +58,7 @@ body {
 
     /* Tombol menu */
     #menu-btn {
-      font-size: 28px;
+      font-size: 35px;
       cursor: pointer;
       background: #6d2932;
       color: #e8d8c4;
@@ -92,7 +92,7 @@ body {
     }
 
     #close-btn {
-      font-size: 35px;
+      font-size: 40px;
       cursor: pointer;
       text-align: right;
       margin-bottom: 20px;
@@ -262,6 +262,7 @@ body {
     /*panduan*/
     .panduan{
         padding-bottom:50px;
+        padding-top:50px;
     }
     
     .panduan h2 {
@@ -368,6 +369,31 @@ body {
       margin: 0 10px;
       text-decoration: none;
     }
+/*keranjang*/
+    #keranjang_section {
+      background: #6d2932;
+      color: #e8d8c4;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    #keranjang_section button {
+        color:#561c24;
+    }
+    
+/*button*/
+    #btn:hover{
+    color:#e8d8c4;
+    background-color:#561c24;
+    }
+    
+    #btn1:hover{
+        color:#561c24;
+        background-color:#c7b7a3;
+    }
 
   </style>
 </head>
@@ -389,6 +415,7 @@ body {
       <li><a href="#about">About Us</a></li>
       <li><a href="#kontak">Contact Us</a></li>
       <li><a href="#tutor">Panduan</a></li>
+      <li><a href="#keranjang_section">Keranjang</a></li>
     </ul>
   </nav>
 
@@ -427,31 +454,33 @@ body {
   <h2>Our Menu</h2>
   <div class="produk-list">
     <div class="produk">
-      <img src="https://i.pinimg.com/736x/6e/5f/0a/6e5f0a5ce2d37688869d538458154e31.jpg" style="margin-top:-80px;">
+      <img src="https://i.pinimg.com/736x/6e/5f/0a/6e5f0a5ce2d37688869d538458154e31.jpg" alt="'chicken katsu" style="margin-top:-80px;">
       <h3 style="color:#e8d8c4">Chicken Katsu</h3>
-      <p style="color:#e8d8c4">Rp14.000</p>
-      <button onclick><a href="https://wa.me/6287836530514?text=Halo%20saya%20ingin%20membeli%20Satu%20Chicken%20katsu">Order Now</a></button>
+      <p style="color:#e8d8c4">Rp13.000</p>
+      <button onclick="tambah()" id="btn1">Tambah keranjang</button>
     </div>
   </div>
 </div>
 
 
+<div id="keranjang_section" class="container">
+  <h2>Keranjang Belanja</h2>
+  <ul id="jumlahproduk"></ul>
+  <ul id="jumlahharga"></ul>
+  <ul id="keranjang"></ul>
+  <p><strong>Total: </strong><span id="total">Rp0</span></p>
+  <p><strong>Jumlah: </strong><span id="qty">Rp0</span></p>
+  <button onclick="tambah()" id="btn">+</button>
+  <button onclick="kurang()" id="btn">-</button>
+  <button onclick="resetQty()" id="btn">Reset</button>
+  <button onclick="checkout()" id="btn">Checkout</button>
+</div>
+
+
+
 <div class="panduan" id="tutor">
 <!-- Summary : judul yang dimunculkan, detail : isi -->
     <h2>Panduan</h2>
-  <details>
-    <summary>Pembelian</summary>
-    <details>
-      <summary>Pembelian 1 pcs</summary>
-      <p>Jika pembelian Barang hanya satu bisa langsung klik tombol "Order Now"</p>
-    </details>
-
-    <details>
-      <summary>Pembelian lebih dari 1 pcs</summary>
-      <p>Jika pembelian lebih dari 1 pcs, Bisa Pesan via wa dengan mencantumkan berapa pcs yang ingin dipesan melalui Whatsapp kami di form " Contact Us"</p>
-    </details>
-  </details>
-
   <details>
     <summary>Pembayaran</summary>
     <p>Sistem pembayaran  Menggunakan COD ya, Jadi harap menyiapkan uang pas! ^^</p>
@@ -465,9 +494,9 @@ body {
 
 <section id="kontak">
   <h2>Contact Us</h2>
-  <input type="text" id="pesan" placeholder="Tulis pesananmu di sini jika pesanan lebih dari satu"
+  <input type="text" id="pesan" placeholder="Saran dan masukan"
     style="padding: 10px; width:320px;">
-  <button onclick="kirimWhatsapp()">Submit</button>
+  <button onclick="kirimWhatsapp()" id="btn1">Submit</button>
 </section>
 
 
@@ -492,19 +521,20 @@ body {
 </footer>
 
 <script>
-/*Pesanan ke wa lebih dari satu*/
+/*Kritik dan saran*/
 function kirimWhatsapp() {
-    const nomor = "6287836530514";
-    const pesan = document.getElementById("pesan").value;
-    if (pesan === "") {
-      alert("Pesanan harus diisi!");
-      return;
-    }
-    const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
-    /*ngubah teks jadi url dgn aman*/
-    window.open(url, "_blank");
+  const nomor = "6287836530514";
+  const pesan = document.getElementById("pesan").value.trim(); // pakai trim() untuk hilangkan spasi
+
+  if (pesan === "") {
+    alert("Pesan tidak boleh kosong!");
+    return; // hentikan fungsi
   }
-  
+
+  const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
+}
+
   
   
 /*sidebar*/
@@ -524,6 +554,48 @@ document.addEventListener("DOMContentLoaded", function() {
         /*matiin cssnya*/
       });
     });
+
+
+
+    
+/*keranjang*/
+    let qty = 0;
+    const harga = 13000;
+
+    function updateDisplay() {
+      document.getElementById('qty').textContent = qty;
+      document.getElementById('total').textContent = (qty * harga).toLocaleString();
+    }
+
+    function tambah() {
+      qty++;
+      updateDisplay();
+    }
+
+    function kurang() {
+      if (qty > 0) {
+        qty--;
+        updateDisplay();
+      }
+    }
+    
+     function resetQty() {
+      qty = 0;
+      updateDisplay();
+    }
+
+    function checkout() {
+      if (qty === 0) {
+        alert("Tambah dulu produknya!");
+        return;
+      }
+      const pesan = `Halo! Saya ingin beli Chicken katsunya sebanyak ${qty} pcs. Total: Rp.  ${(qty * harga).toLocaleString()}`;
+      const noWA = "6287836530514"; // Ganti dengan nomor WA kamu
+      const link = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
+      window.open(link, '_blank');
+    }
+  
+
 </script>
 
 </body>

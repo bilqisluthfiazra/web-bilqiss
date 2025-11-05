@@ -57,15 +57,38 @@
 <!-- MENU -->
 <div class="container" id="menu">
   <h2>Our Menu</h2>
+
   <div class="produk-list">
     <div class="produk">
-      <img src="https://i.pinimg.com/736x/6e/5f/0a/6e5f0a5ce2d37688869d538458154e31.jpg" alt="'chicken katsu" style="margin-top:-80px;">
-      <h3 style="color:#e8d8c4">Chicken Katsu</h3>
-      <p style="color:#e8d8c4">Rp13.000</p>
-      <button onclick="tambah()" id="btn1">Tambah keranjang</button>
+      <img src="https://i.pinimg.com/1200x/bc/2b/65/bc2b65883fcd7dec8f6659a5b8be65ff.jpg" alt="makaroni pedas">
+      <div class="produk-info">
+        <h3>Makaroni Pedas</h3>
+        <p>Rp4.000</p>
+        <button onclick="tambah()" class="btn-keranjang">Tambah Keranjang</button>
+      </div>
+    </div>
+
+    <div class="produk">
+      <img src="https://i.pinimg.com/736x/fe/a0/6c/fea06cdd69ba144583298153e8c2f044.jpg" alt="makaroni pedas daun jeruk">
+      <div class="produk-info">
+        <h3>Makaroni Pedas Daun Jeruk</h3>
+        <p>Rp4.000</p>
+        <button onclick="tambah()" class="btn-keranjang">Tambah Keranjang</button>
+      </div>
+    </div>
+
+    <div class="produk">
+      <img src="https://i.pinimg.com/1200x/23/0b/8a/230b8ad5f5bd0fa7f3cc049e770a66a4.jpg" alt="makaroni daun jeruk">
+      <div class="produk-info">
+        <h3>Makaroni Daun Jeruk</h3>
+        <p>Rp4.000</p>
+        <button onclick="tambah()" class="btn-keranjang">Tambah Keranjang</button>
+      </div>
     </div>
   </div>
 </div>
+
+
 
 <!-- KERANJANG -->
 <div id="keranjang_section" class="container">
@@ -75,7 +98,7 @@
   <ul id="keranjang"></ul>
   <p><strong>Total: </strong><span id="total">Rp0</span></p>
   <p><strong>Jumlah: </strong><span id="qty">Rp0</span></p>
-  <button onclick="tambah()" id="btn">+</button>
+  <!-- <button onclick="tambah()" id="btn">+</button> -->
   <button onclick="kurang()" id="btn">-</button>
   <button onclick="resetQty()" id="btn">Reset</button>
   <button onclick="checkout()" id="btn">Checkout</button>
@@ -119,15 +142,6 @@
     <p>Sistem pembayaran  Menggunakan COD ya, Jadi harap menyiapkan uang pas! ^^</p>
   </details>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 <footer>

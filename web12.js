@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Tambah dulu produknya!");
         return;
       }
-      const pesan = `Halo! Saya ingin beli Chicken katsunya sebanyak ${qty} pcs. Total: Rp.  ${(qty * harga).toLocaleString()}`;
+      const pesan = `Halo! Saya ingin beli makaroni Pedasnya sebanyak ${qty} pcs. Total: Rp.  ${(qty * harga).toLocaleString()}`;
       const noWA = "6287836530514"; // Ganti dengan nomor WA kamu
       const link = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
       window.open(link, '_blank');

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8">
+  <title>MakrezZZ</title>
+  <link rel="stylesheet" href="web12.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+    <div class="navbar"> 
+    <img src="https://i.pinimg.com/736x/c4/96/ba/c496ba17716acb2ee4a0e8501868666e.jpg" style="height: 70px; width: 100px;"/>
+    <!-- <h1 style="margin-left:50px;">MakrezZZ</h1> -->
+    <div id="menu-btn" style="margin-left:1000px;">&#9776; 
+    </div>
+    </div>
+    <!-- &#9776= simbol garis 3, &times= tanda x -->
+     
+
+  <!-- SIDE BAR -->
+  <nav id="sidebar">
+    <div id="close-btn">&times;</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#kontak">Contact Us</a></li>
+      <li><a href="#tutor">Panduan</a></li>
+      <li><a href="#keranjang_section">Keranjang</a></li>
+      <li><a href="#review">Review Customer</a></li>
+    </ul>
+  </nav>
+
+ <!-- HEADER -->
+<header id=home >
+    <img   src="https://i.pinimg.com/736x/00/53/ca/0053ca5c4971b5eaabc5caa156fbb542.jpg"
+    style="width: 45%; margin-bottom: 20px;" />
+  
+  <div>
+    <h4 style="font-size: 45px;">
+      Setiap Renyahan Pastinya Memiliki Banyak Cerita
+    </h4>
+    <button><a href="#menu">Shop Now</a></button>
+  </div>
+</header>
+
+
+<!-- ABOUT US -->
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <div class="us">
+      <p style="margin: auto; font-size: 19px;">Kami yang akan menyediakan kuliner simple yang mengenyangkan perut dengan tujuan mengisi perut yang lapar , berbahan dasar ayam fillet yang digoreng dengan tepung panir yang menciptakan rasa yang autentik. Usaha kami MonriboX sendiri kami ambil dari nama kelompok kami yaitu hari senin (MONday) RIce  BOX
+  </p>
+  <img src="https://i.pinimg.com/736x/20/a8/2c/20a82c0645c02ae06d197a8e41253e2e.jpg" style="width:230px; height:230px; border-radius:100%;">
+  </div>
+</section>
+
+
+<!-- MENU -->
+<div class="container" id="menu">
+  <h2>Our Menu</h2>
+  <div class="produk-list">
+    <div class="produk">
+      <img src="https://i.pinimg.com/736x/6e/5f/0a/6e5f0a5ce2d37688869d538458154e31.jpg" alt="'chicken katsu" style="margin-top:-80px;">
+      <h3 style="color:#e8d8c4">Chicken Katsu</h3>
+      <p style="color:#e8d8c4">Rp13.000</p>
+      <button onclick="tambah()" id="btn1">Tambah keranjang</button>
+    </div>
+  </div>
+</div>
+
+<!-- KERANJANG -->
+<div id="keranjang_section" class="container">
+  <h2>Keranjang Belanja</h2>
+  <ul id="jumlahproduk"></ul>
+  <ul id="jumlahharga"></ul>
+  <ul id="keranjang"></ul>
+  <p><strong>Total: </strong><span id="total">Rp0</span></p>
+  <p><strong>Jumlah: </strong><span id="qty">Rp0</span></p>
+  <button onclick="tambah()" id="btn">+</button>
+  <button onclick="kurang()" id="btn">-</button>
+  <button onclick="resetQty()" id="btn">Reset</button>
+  <button onclick="checkout()" id="btn">Checkout</button>
+</div>
+
+<!-- REVIEW PRODUK -->
+  <section id="review">
+    <h2>Review Produk</h2>
+    
+    <div class="review-box">
+      <div class="stars">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+
+      <input type="text" id="nama" placeholder="Masukkan nama Anda">
+      <textarea id="komentar" rows="3" placeholder="Tulis review Anda di sini..."></textarea>
+      <button id="kirimReview">Kirim Review</button>
+    </div>
+
+    <div id="daftarReview"></div>
+  </section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <h2>Contact Us</h2>
+  <input type="text" id="pesan" placeholder="Saran dan masukan"
+    style="padding: 10px; width:320px;">
+  <button onclick="kirimWhatsapp()" id="btn1">Submit</button>
+</section>
+
+<!-- PANDUAN -->
+<div class="panduan" id="tutor">
+<!-- Summary : judul yang dimunculkan, detail : isi -->
+    <h2>Panduan</h2>
+  <details>
+    <summary>Pembayaran</summary>
+    <p>Sistem pembayaran  Menggunakan COD ya, Jadi harap menyiapkan uang pas! ^^</p>
+  </details>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <div class="label">
+    <h6><u>Monday</u></h6>
+    <img src="https://i.pinimg.com/736x/20/a8/2c/20a82c0645c02ae06d197a8e41253e2e.jpg"></img>
+    <h5><u>RiceBoX</u></h5>
+  </div>
+
+
+  <p>Ikuti kami di sosial media:</p>
+  <div class="sosmed">
+    <a href="https://www.instagram.com/monribox?igsh=YWU5a3NpbGdpamh5">Instagram</a> |
+    <a href="https://www.facebook.com/share/1KYXT7C9vr/">Facebook</a> |
+    <a href="https://www.tiktok.com/@_monribox_uwu?_t=ZS-8wCQOxzP1M8&_r=1">TikTok</a> |
+    <a href="https://id.shp.ee/cr5ZJ5s">Shopee</a> |
+    <a href="https://www.youtube.com/@mondribbox">Youtube</a> |
+    <a href="https://x.com/monribox?t=XCHAQUFeTIkvtxTXUF1nDA&s=09">X</a> 
+  </div>
+  <p>&copy; 2025 Monday Rice Box</p>
+</footer>
+
+<script src="web12.js"></script>
+
+
+</body>
+</html>

@@ -33,11 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-
     
 /*keranjang*/
     let qty = 0;
-    const harga = 13000;
+    const harga = 4000;
 
     function updateDisplay() {
       document.getElementById('qty').textContent = qty;
@@ -129,4 +128,3 @@ daftarReview.onclick = e => {
     review.remove();
   }
 };
-

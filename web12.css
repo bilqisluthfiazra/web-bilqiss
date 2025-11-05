@@ -207,8 +207,6 @@
         padding:60px;
     }
     
-
-    /*  update */
     .produk-list {
         display: flex;
         justify-content: center;
@@ -249,58 +247,24 @@
     }
 
     .produk-info p {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
-.btn-keranjang {
-  background-color: #e8d8c4;
-  color: #6d2932;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    .btn-keranjang {
+        background-color: #e8d8c4;
+        color: #6d2932;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
 
-.btn-keranjang:hover {
-  background-color: #d7c3a7;
-}
-
-/* Tombol panah */
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #e8d8c4;
-  color: #6d2932;
-  border: 2px solid #6d2932;
-  font-size: 28px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.scroll-btn:hover {
-  background-color: #6d2932;
-  color: #e8d8c4;
-}
-
-.scroll-btn.left {
-  left: 10px;
-}
-
-.scroll-btn.right {
-  right: 10px;
-}
-
-
-/* sampe sini */
-
+    .btn-keranjang:hover {
+        background-color: #d7c3a7;
+    }
 
     button {
       background-color: #561c24;

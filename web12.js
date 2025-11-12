@@ -35,42 +35,87 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
 /*keranjang*/
-    let qty = 0;
-    const harga = 4000;
+    const produkList = [
+      { nama: "Makaroni Pedas", harga: 4000, qty: 0 },
+      { nama: "Makaroni Keju", harga: 4000, qty: 0 },
+      { nama: "Makaroni Jagung Manis", harga: 4000, qty: 0 }
+    ];
 
+    // Fungsi update tampilan
     function updateDisplay() {
-      document.getElementById('qty').textContent = qty;
-      document.getElementById('total').textContent = (qty * harga).toLocaleString();
+      let totalQty = 0;
+      let totalHarga = 0;
+      let isiKeranjang = "";
+
+      produkList.forEach((p, i) => {
+        if (p.qty > 0) {
+          isiKeranjang += `
+            <li>
+              ${p.nama} — ${p.qty} pcs x Rp ${p.harga.toLocaleString()} = Rp ${(p.qty * p.harga).toLocaleString()}
+              <button onclick="kurang(${i})">-</button>
+              <button onclick="tambah(${i})">+</button>
+            </li>`;
+        }
+        totalQty += p.qty;
+        totalHarga += p.qty * p.harga;
+      });
+
+      document.getElementById('keranjang').innerHTML = isiKeranjang || "<li>Keranjang kosong</li>";
+      document.getElementById('qty').textContent = totalQty;
+      document.getElementById('total').textContent = "Rp" + totalHarga.toLocaleString();
     }
 
-    function tambah() {
-      qty++;
+    // Fungsi tambah & kurang per produk
+    function tambah(index) {
+      produkList[index].qty++;
       updateDisplay();
     }
 
-    function kurang() {
-      if (qty > 0) {
-        qty--;
+    function kurang(index) {
+      if (produkList[index].qty > 0) {
+        produkList[index].qty--;
         updateDisplay();
       }
     }
-    
-     function resetQty() {
-      qty = 0;
+
+    // Kurangi semua qty satu per satu (opsional)
+    function kurangSemua() {
+      produkList.forEach(p => {
+        if (p.qty > 0) p.qty--;
+      });
       updateDisplay();
     }
 
+    // Reset semua produk
+    function resetQty() {
+      produkList.forEach(p => p.qty = 0);
+      updateDisplay();
+    }
+
+    // Checkout ke WhatsApp
     function checkout() {
-      if (qty === 0) {
+      const produkDipesan = produkList.filter(p => p.qty > 0);
+      if (produkDipesan.length === 0) {
         alert("Tambah dulu produknya!");
         return;
       }
-      const pesan = `Halo! Saya ingin beli makaroni Pedasnya sebanyak ${qty} pcs. Total: Rp.  ${(qty * harga).toLocaleString()}`;
+
+      let pesan = "Halo! Saya ingin beli:\n\n";
+      let total = 0;
+
+      produkDipesan.forEach(p => {
+        pesan += ` ${p.nama} - ${p.qty} pcs x Rp ${p.harga.toLocaleString()} = Rp ${(p.qty * p.harga).toLocaleString()}\n`;
+        total += p.qty * p.harga;
+      });
+
+      pesan += `\n Total: Rp ${total.toLocaleString()}`;
+
       const noWA = "6287836530514"; // Ganti dengan nomor WA kamu
       const link = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
       window.open(link, '_blank');
     }
 
+    updateDisplay();
  
 
 

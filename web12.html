@@ -68,7 +68,7 @@
       <div class="produk-info">
         <h3>Makaroni Pedas</h3>
         <p>Rp4.000</p>
-        <button onclick="tambah()" class="btn-keranjang">Tambah Keranjang</button>
+        <button onclick="tambah(0)" class="btn-keranjang">Tambah Keranjang</button>
       </div>
     </div>
 
@@ -77,7 +77,7 @@
       <div class="produk-info">
         <h3>Makaroni Pedas Daun Jeruk</h3>
         <p>Rp4.000</p>
-        <button onclick="tambah()" class="btn-keranjang">Tambah Keranjang</button>
+        <button onclick="tambah(1)" class="btn-keranjang">Tambah Keranjang</button>
       </div>
     </div>
 
@@ -86,7 +86,7 @@
       <div class="produk-info">
         <h3>Makaroni Daun Jeruk</h3>
         <p>Rp4.000</p>
-        <button onclick="tambah()" class="btn-keranjang">Tambah Keranjang</button>
+        <button onclick="tambah(2)" class="btn-keranjang">Tambah Keranjang</button>
       </div>
     </div>
   </div>
@@ -101,9 +101,9 @@
   <ul id="jumlahharga"></ul>
   <ul id="keranjang"></ul>
   <p><strong>Total: </strong><span id="total">Rp0</span></p>
-  <p><strong>Jumlah: </strong><span id="qty">Rp0</span></p>
+  <p><strong>Jumlah: </strong><span id="qty">0</span></p>
   <!-- <button onclick="tambah()" id="btn">+</button> -->
-  <button onclick="kurang()" id="btn">-</button>
+  <!-- <button onclick="kurang()" id="btn">-</button> -->
   <button onclick="resetQty()" id="btn">Reset</button>
   <button onclick="checkout()" id="btn">Checkout</button>
 </div>

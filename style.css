@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e8d8c4;
+      color: #4a4a4a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .container {
+      background: #fff3e6;
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #bb3e1a;
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    button {
+      background-color: #561c24;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: green;
+    }
+
+    .error-message {
+      color: #561c24;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #4a4a4a;
+      text-align: center;
+    }
+
+    img.logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #bb3e1a;
+      text-decoration: none;
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Halaman kolos */
+    .dashboard {
+      text-align: center;
+    }
+
+    header {
+      background: #561c24;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .dashboard button {
+      background: white;
+      color: #bb3e1a;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .dashboard button:hover {
+      background: green;
+      color: white;
+    }
